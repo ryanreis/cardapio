@@ -121,10 +121,12 @@ main {
 
 
 /* Responsividade para celulares */
-@media (max-width: 786px) {
+@media (max-width: 400px) {
   body {
     font-size: 14px;
-    overflow: auto;
+    overflow: hidden; /* Evita rolagem desnecessária */
+    margin: 0;
+    padding: 0;
   }
 
   header h1 {
@@ -133,36 +135,42 @@ main {
 
   main {
     padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 50px); /* Ajusta a altura da área principal (50px é a altura do header) */
   }
 
   .carousel {
     max-width: 100%;
-    height: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .product {
-    padding: 1rem;
     text-align: center;
   }
 
   .product-img {
-    font-size: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
   }
 
   .product-img img {
     max-width: 250px;
     width: 100%;
     height: auto;
-    display: block;
-    margin: 0 auto;
   }
 
   .arrow-left,
   .arrow-right {
-    top: 40%;
+    top: 50%;
+    transform: translateY(-50%);
     width: 30px;
     height: 30px;
   }
