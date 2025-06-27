@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #fbff00b6;
+  color: #333;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+ 
+
+header {
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  padding: 1rem;
+  background: #33333359;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 1rem;  /* Tamanho menor para o título */
+  margin: 0; /* Remove a margem padrão */
+  padding: 0; /* Remove o padding padrão */
+}
+
+
+
+
+.arrow-left {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: 10px; /* seta esquerda */
+}
+
+.arrow-right {
+  right: 10px; /* seta direita */
+}
+
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+}
+
+.product {
+  position: absolute;
+  top: 0;
+  left: -32px;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.9s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center !important;
+}
+
+.product.active {
+  opacity: 1;
+  transform: rotate(3deg) translateX(0);
+  z-index: 1;
+}
+
+.product.exit-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+
+.product-img {
+  display: inline-block;
+  opacity: 0;
+  transform: rotate(3deg) translateY(-20px);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.product.active .product-img {
+  opacity: 1;
+  transform: rotate(0deg) translateY(0);
+}
+
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    overflow: auto;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  main {
+    padding: 0 10px;
+  }
+
+  .carousel {
+    max-width: 100%;
+    height: 200px;
+  }
+
+  .product {
+    padding: 1rem;
+  }
+
+  .product-img {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arrow-left,
+  .arrow-right {
+    top: 40%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .arrow-left img,
+  .arrow-right img {
+    width: 100%;
+    height: 100%;
+  }
+}
